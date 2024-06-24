@@ -27,5 +27,5 @@ Click the link to the project to find out more and create your own text-based ga
 <li><strong>Narration:</strong> Natural Readers</li>
 <li><strong>Online Assets:</strong> CivitAi, FlatIcon, Font Awesome</li>
 <li><strong>Soundtrack:</strong> Free Horror Ambience (Dark Project) - ESN Productions</li>
-<li><strong>Alpha testers:</strong> Moustakidis Marios, Sklidas Panagiotis</li>
+<li><strong>Alpha testers:</strong> Moustakidis Marios, Sklidas Panagiotis, Konstantinidis Menelaos</li>
 </ul>
