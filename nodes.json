@@ -1,0 +1,520 @@
+{ "initialNode":0,
+  "soundtrack": "./sound/horror-ambience.mp3",
+  "defaultBackground": "bg.jpg",
+  "pauseTime": 2500,
+  "checkpoint": {"node":17, "time":{ "hours": 20, "minutes": 34 }},
+  "finalNodes":[5, 10, 23, 32, 33, 41, 52, 53],
+  "deathNodes":[5, 10, 23, 33, 41],
+  "startingTime":{ "hours": 19, "minutes": 12 },
+  "endTime":{ "hours": 23, "minutes": 54 },
+  "timeoutNode": 34,
+  "inventory": [
+    {"name":"pliers", "possession": false, "nodeAcquired": [2, 49], "nodeJumps": [{"use": 47, "target":48}]},
+    {"name":"knife", "possession": false, "nodeAcquired": [14, 28], "nodeJumps": [{"use": 26, "target":27}, {"use": 34, "target": 35}]},
+    {"name":"basement-key", "possession": false, "nodeAcquired": [42], "nodeJumps": []}
+],
+  "characters":[
+    {"name": "protagonist", "image": "protagonist.png", "color": "lightSteelBlue" },
+    {"name": "woman", "image": "woman.png", "color": "IndianRed" },
+    {"name": "owner", "image": "owner.png", "color": "DarkKhaki" },
+    {"name": "portrait", "image": "portrait.png", "color": "DarkKhaki" },
+    {"name": "wife", "image": "wife.png", "color": "LightPink" },
+    {"name": "doctor", "image": "doctor.png", "color": "CornflowerBlue" }
+  ],
+  "nodes":[
+    {
+      "id": "0",
+      "text": "<p>My head throbs with disorientation as I slowly come to consciousness. Blinking away the haze, I find myself sprawled upon the worn planks of a desolate room, the musty scent of neglect assaulting my senses. How did I come to be here? Where is <i>here</i>, exactly? The room exudes an air of abandonment.</p> <p>A solitary wall lamp casts a feeble glow, its flickering light barely piercing the gloom. With a sense of unease settling over me, I survey my surroundings, only to discover a disconcerting absence of windows.</p> <p>As my eyes adjust to the dimness, a <em>door</em> materializes at the far end of the chamber, its entrance barred by a stout wooden plank secured with a <em>combination lock</em>. Oddly, the sight fails to surprise me. It's as if some primal instinct has already forewarned me of the necessity to escape this place.</p> <p>Turning my attention to the room's contents, I spy <em>four  barrels</em> clustered in one corner, hinting at the chamber's former life as a cellar. Across the room, a <em>weathered cabinet</em> stands sentinel, its surface strewn with an assortment of tools. Above it, <em>a rustic Christian cross</em> dangles from a nail, its presence an incongruous anomaly in this forsaken abode.</p> <p><b>Where should I begin my search?</b></p>",
+      "narration":"node000.mp3", "img":"cellar.jpg",
+      "options": [
+        {"id": "1", "text": "Look inside the barrels",  "target": "1", "feedback":"", "sound":"barrels.mp3", "time":"7"},
+        {"id": "2", "text": "Look inside the tool cabinet", "target": "2", "feedback":"", "sound":"toolbox.wav", "time":"4"},
+        {"id": "3", "text": "Look at the cross", "target": "3", "feedback":"'0033' There is a combination behind the cross!   What a weird place… At least I can open the door now.", "sound":"doorcreaking.flac", "time":"3"}
+      ]
+    },
+    {
+      "id": "1",
+      "text": "These are old wooden wine barrels. The best I can do with them is get drunk. Where else could my way out be?",
+      "narration":"node001.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Look inside the cabinet", "target": "2", "feedback":"", "sound":"toolbox.wav", "time":"4"},
+        {"id": "2", "text": "Look at the cross", "target": "3", "feedback":"There is a combination behind the cross. What a weird place... At least I can open the door now.", "sound":"doorcreaking.flac", "time":"3"},
+        {"id": "3", "text": "Get drunk", "target": "1", "feedback":"Seriously?", "sound":"drinking.wav", "time":"33"}
+      ]
+    },
+    {
+      "id": "2",
+      "text": "Inside the second drawer of the cabinet there is a pair of <em>cutting pliers</em> This can be handy. I could use it to cut the lock.",
+      "narration":"node002.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Cut the lock", "target": "3", "feedback":"The door opens!", "sound":"doorcreaking.flac", "time":"3"}
+      ]
+    },
+    {
+      "id": "3",
+      "text": "<p>Emerging from the cellar, I step into a room engulfed in shadow. Dust-coated furniture and weathered crates line the space, silent witnesses to years gone by. This must be the mansion's <em>basement</em>.</p> <p>My gaze lingers on a stout <em>door</em> at the far end of the room, its surface weathered by time. A shiver runs down my spine, unease settling over me. Some doors are best left unopened, I remind myself.</p> <p>Turning away from the door, I make my way toward the <em>ladder</em> leading back to the upper levels of the mansion. My path is <em>blocked by a heavy hatch</em>. <b>How can I move forward?</b></p>",
+      "narration":"node003.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Find a way upstairs", "target": "4", "feedback":"", "sound":"climbing-ladder.mp3", "time":"8"},
+        {"id": "2", "text": "Check the door", "target": "3", "feedback":"Locked! I'd better go. The key is probably upstairs.", "sound":"locked-door.mp3", "time":"5"}
+      ]
+    },
+    {
+      "id": "4",
+      "text": "<p>Beside the wooden ladder, I notice a <em>small electronic panel</em>. Opening it, I find <em>five colored buttons</em>. On the inside of the panel's door, a <em>note</em> is affixed:</p> <p class='note'><i> I can be seen in the morning light,<br> Or in the moon's soft glow at night.<br> I paint the sky and calm the seas,<br> And in the garden, I please the bees.</i> </p> <p>This is probably a hint.</p>",
+      "narration":"node004.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Press the <span style='color:orange;'>orange</span> button", "target": "5", "feedback":"", "sound":"locked-door.mp3", "time":"1"},
+        {"id": "2", "text": "Press the <span style='color:DodgerBlue;'>blue</span> button", "target": "6", "feedback":"You hear a clicking sound and the hatch opens", "sound":"door-unlocked.wav", "time":"1"},
+        {"id": "3", "text": "Press the <span style='color:green;'>green</span> button", "target": "5", "feedback":"", "sound":"locked-door.mp3", "time":"1"},
+        {"id": "4", "text": "Press the <span style='color:purple;'>purple</span> button", "target": "5", "feedback":"", "sound":"locked-door.mp3", "time":"1"},
+        {"id": "5", "text": "Press the <span style='color:gray;'>gray</span> button", "target": "5", "feedback":"", "sound":"locked-door.mp3", "time":"1"}
+      ]
+    },
+    {
+      "id": "5",
+      "text": "<p>A mechanical sound reverberates through the room, but <em>the hatch remains stubbornly locked</em>. Frustrated, I try pressing the other buttons, but nothing happens. Desperation grips me as I realize <em>I 'll take my last breath in this cursed place</em>.</p>",
+      "narration":"node005.mp3", "img":"",
+      "options": [
+       
+      ]
+    },
+    {
+      "id": "6",
+      "text": "<p>Standing in the <em>main hall</em>, I'm struck by the opulence that once graced these walls. A sweeping staircase commands attention. It's clear that someone once called this place home, but the signs of recent habitation are overshadowed by the eerie absence of life. <p>Despite the lingering traces of luxury, the atmosphere is heavy with foreboding. Thick <em>wooden planks obscure the windows</em>, casting the hall in a dim, murky light that seems to suffocate the air. Only feeble shafts of sunlight penetrate the gloom.</p> <p>My gaze drifts to the floor, where a <em>trail of blood</em> cuts a sinister path across the polished marble. Each drop seems to pulse with silent accusation, <em>leading ominously toward the living room</em>, a silent witness to unspeakable horrors.</p> <p>Dread coils in the pit of my stomach as I contemplate the significance of the bloodstained trail. What unseen terrors lurk within these walls? Is my safety in jeopardy?</p> <p>Perhaps it's best to heed the warning whispered by the shadows and make my <b>escape</b> while I still can. Every instinct screams for flight, but curiosity compels me to <b>press forward</b>.</p>",
+      "narration":"node006.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Try to leave the building immediately", "target": "7", "feedback":"", "sound":"locked-door.mp3", "time":"6"},
+        {"id": "2", "text": "Investigate the living room", "target": "8", "feedback":"", "sound":"footsteps.wav", "time":"14"}
+      ]
+    },
+    {
+      "id": "7",
+      "text": "<p>The realization that <em>the front door is locked</em> from the outside sends a chill down my spine, confirming my worst fears. Trapped within these walls, with no means of escape, I'm left with no choice but to confront the mysteries that lurk within.</p>",
+      "narration":"node007.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Investigate the living room", "target": "8", "feedback":"", "sound":"footsteps.wav", "time":"14"},
+        {"id": "2", "text": "Investigate the windows", "target": "7", "feedback":"No luck either! They are blocked from the outside with planks.", "sound":"thinking.wav", "time":"4"}
+      ]
+    },
+    {
+      "id": "8",
+      "text": "<p>Stepping into the <em>living room</em> of the mansion, my senses are assaulted by a scene straight from a nightmare. Every piece of furniture has been pushed aside, creating a grotesque canvas for the horrifying centerpiece—<em>a massive pentagram</em>, etched in dark crimson upon the polished floorboards.</p> <p>My gaze is drawn unwillingly to the macabre tableau at the heart of the room. The <em>traces of four lifeless forms</em>, lie sprawled around the edges of the demonic symbol. The stench of death hangs heavy in the air, mingling with the tang of spilled blood. The <em>police, no doubt, have long since removed the bodies</em>, but the crimson stains remain as a grim testament to the horrors that unfolded here.</p> <p>As I steel myself to turn away from the chilling scene, my eyes catch sight of a lone object perched atop an antique piano in the far corner of the room. A <em>piece of paper, perhaps left behind by the authorities</em>. Before I can investigate further, <em>a sudden cacophony erupts from the nearby kitchen</em>, a jarring contrast to the oppressive silence that has enveloped the mansion.</p> <p>My heart pounds in my chest, and a cold sweat breaks out across my brow. <b>What should I do?</b></p>",
+      "narration":"node008.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Investigate the note", "target": "11", "feedback":"", "sound":"page.wav", "time":"6"},
+        {"id": "2", "text": "Investigate the sound", "target": "9", "feedback":"", "sound":"object-falling.wav", "time":"9"}
+      ]
+    },
+    {
+      "id": "9",
+      "text": "<p>As I step into the <em>kitchen</em>, my heart sinks at the sight before me. Every cabinet door hangs open, their contents strewn across the floor amidst piles of trash. The air is thick with the stench of decay. Suddenly, I feel a presence behind me. Whirling around, <em>I find myself face-to-face with a woman clutching a shotgun</em>. Her clothes are stained with blood, her eyes wild with a mix of agony and rage.</p> <p><span class='speech woman'>'You did all this!'</span> she screams, her voice cracking with emotion. <span class='speech woman'>'Now you shall take the evil with you! To your grave!'</span></p>",
+      "narration":"node009.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Try to reason with her", "target": "10", "feedback":"", "sound":"shotgun-fire.wav", "time":"5"},
+        {"id": "2", "text": "Try to defend yourself", "target": "14", "feedback":"", "sound":"dying-female.wav", "time":"12"}
+      ]
+    },
+    {
+      "id": "10",
+      "text": "<p>I freeze, fear paralyzing my every muscle. <span class='speech protagonist'>'Wait,</span>' I stammer, my voice barely audible over the pounding of my heart. <span class='speech protagonist'>'I don't even know what happened here. I just walked in!'</span></p> <p>Her grip on the shotgun tightens, and she steps closer, her eyes boring into mine. <span class='speech woman'>'Liar! You think I don't know what you've done? The blood... it's on your hands!'</span></p> <p><em>She pulls the trigger</em>. Even <em>you</em> cannot survive the blast. <em>Now you lie dead</em> on the kitchen floor <b>never to find out the truth behind this story.</b></p>",
+      "narration":"node010.mp3", "img":"",
+      "options": [
+        
+      ]
+    },
+    {
+      "id": "11",
+      "text": "<div class='note report'><h1>Police report (draft):</h1><p>There must be some kind of <em>ritual</em> that took place around midnight. We suspect that <em>7 members</em> of this cult performed the rituals.</p> <ul><li>The killer was probably one of them.</li><li> 4 bodies were found around the circle.</li><li> The time of death was a few minutes after <em>midnight</em>.</li><li>The other 2 and the killer probably escaped. </li><li>The <b>owner</b> of the mansion vanished among them. He is the <b>main suspect</b> for the time being</li><ul></div> <p>Before I finish reading <em>a gunshot is heard from the kitchen</em>.</p>",
+      "narration":"node011.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Investigate the kitchen", "target": "12", "feedback":"", "sound":"shotgun-fire.wav", "time":"11"}
+      ]
+    },
+    {
+      "id": "12",
+      "text": "<p>As I step into the kitchen counter, my heart sinks at the sight before me. Every cabinet door hangs open, their contents strewn across the floor amidst piles of trash. In the corner of the room, a <em>dead body of a woman</em> lies slumped, a shotgun in her hand. She must have ended her life moments ago.</p> <p>Despite my fear, my eyes are drawn to a <em>note</em> that has just fallen from her lifeless grasp, now covered in blood. Trembling, I can't help but reach for it, sensing that this piece of crucial information might hold the key to my <em>escape</em>.</p>",
+      "narration":"node012.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Read the bloody note", "target": "13", "feedback":"", "sound":"page.wav", "time":"5"},
+        {"id": "2", "text": "Investigate the woman", "target": "12", "feedback":"She was in a rough state. But why did she ended her own life?", "sound":"thinking.wav", "time":"2"},
+        {"id": "3", "text": "Investigate the shotgun", "target": "12", "feedback":"It's empty. And either way I wouldn't use it!", "sound":"shotgun.wav", "time":"3"}
+      ]
+    },
+    {
+      "id": "13",
+      "text": "<div class='bloody note'><h2>18-4-1974</h2><p>We did as the book said. But he tricked us. We <b>woke up evil</b>. And now it walks around this mansion <b>every night</b>. The screams.. so loud.</p> <p>Police locked up the building. <b>My only way out lies with him in the basement</b>. Neither evil nor I can escape! I shall redeem myself!</p></div><p><b>What can I make out of these pieces of information?</b></p>",
+      "narration":"node013.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Recap what you know by now", "target": "17", "feedback":"", "sound":"thinking.wav", "time":"15"},
+        {"id": "2", "text": "Investigate the woman", "target": "13", "feedback":"Did she kill herself for redemption?", "sound":"thinking.wav", "time":"2"},
+        {"id": "3", "text": "Investigate the shotgun", "target": "13", "feedback":"It's empty. And either way I wouldn't use it!", "sound":"shotgun.wav", "time":"3"}
+       ]
+    },
+    {
+      "id": "14",
+      "text": "<p>I go for a <em>knife</em> from the kitchen. She immediately pulls the trigger, but she misses the shot. Before long, <em>the knife finds its way in her belly</em>, and the mysterious woman bleeds out. I can't believe I did this, even in self-defense.</p> <p><span class='speech woman'>'Curse you! Hell is waiting for us all...'</span> she gasps with her final breath. As she lies still, I notice <em>a small note tucked under her shirt</em>.</p>",
+      "narration":"node014.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Read the bloody note", "target": "15", "feedback":"", "sound":"page.wav", "time":"5"}
+       ]
+    },
+    {
+      "id": "15",
+      "text": "<p>With trembling hands, I retrieve the note, hoping it holds some clue to the madness surrounding me.</p><div class='bloody note'><h2>18-4-1974</h2><p>We did as the book said. But he tricked us. We <b>woke up evil</b>. And now it walks around this mansion <b>every night</b>. The screams.. so loud.</p> <p>Police locked up the building. <b>My only way out lies with him in the basement</b>. Neither evil nor I can escape! I shall redeem myself!</p></div> <p>I should read the <em>note in the living room</em> to better figure out the situation.</p>",
+      "narration":"node015.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Return to the living room", "target": "16", "feedback":"", "sound":"footsteps.wav", "time":"10"},
+        {"id": "2", "text": "Check the shotgun", "target": "15", "feedback":"No use. This was her last bullet.", "sound":"shotgun.wav", "time":"3"}
+       ]
+    },
+    {
+      "id": "16",
+      "text": "<p>I return to the <em>living room</em> to check the <em>note on the piano</em>.</p><div class='note report'><h1>Police report (draft):</h1><p>There must be some kind of <em>ritual</em> that took place around midnight. We suspect that <em>7 members</em> of this cult performed the rituals.</p> <ul><li>The killer was probably one of them.</li><li> 4 bodies were found around the circle.</li><li> The time of death was a few minutes after <em>midnight</em>.</li><li>The other 2 and the killer probably escaped. </li><li>The <b>owner</b> of the mansion vanished among them. He is the <b>main suspect</b> for the time being</li><ul></div><p><b>What can I make out of these pieces of information?</b></p>",
+      "narration":"node016.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Recap what you know by now", "target": "17", "feedback":"", "sound":"thinking.wav", "time":"11"}
+       ]
+    },
+    {
+      "id": "17",
+      "text": "<p><em>A diabolic ritual was performed</em> in the mansion not long ago. The police believe <em>seven people were involved</em>; four were found dead, and three escaped. This woman was one of the survivors. After the police left, they <em>locked the house</em> from the outside. What did they try to contain?</p> <p>The police suspect the <em>owner of the mansion</em> masterminded this massive murder. However, the woman's notes suggest <em>an evil power</em> was unleashed that night, causing the chaos. Why did she accuse me of being involved in this madness?</p> <p>Judging from the police report and the woman's notes, <em>the entity responsible is expected to return at midnight</em>. She wrote that both the evil she feared and a possible <em>escape route were in the basement</em>. Yet, she didn’t leave. <b>Perhaps there is a way to undo this evil. <em>I have until midnight to figure it out, or I will be in serious danger.</em></b></p>",
+      "narration":"node017.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Investigate the upper floor for clues", "target": "18", "feedback":"", "sound":"footsteps.wav", "time":"35"},
+        {"id": "2", "text": "Search a way out throught the basement", "target": "43 ", "feedback":"", "sound":"climbing-ladder.mp3", "time":"18"}
+       ]
+    },
+    {
+      "id": "18",
+      "text": "<p>I ascend the creaky staircase, the air growing colder with each step. Soon, I find myself in a room lined with towering bookshelves each laden with tomes covering a myriad of subjects. This is probably the <em>library</em> of the mansion,</p> <p>This must be the perfect place to uncover more clues about the <em>book mentioned in the blood-stained note</em>.</p>",
+      "narration":"node018.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Search in the religion section", "target": "19", "feedback":"", "sound":"footsteps.wav", "time":"8"},
+        {"id": "2", "text": "Search in the history section", "target": "37", "feedback":"", "sound":"footsteps.wav", "time":"6"},
+        {"id": "3", "text": "Search in the encyclopedia", "target": "18", "feedback":"Nothing relevant but the owner better be smart.", "sound":"footsteps.wav", "time":"5"}
+       ]
+    },
+    {
+      "id": "19",
+      "text": "<p>I scour the religion section but find nothing relevant. However, it's immediately obvious that <em>a book is missing</em>. In its place, dark <em>stains of blood</em> mark the wooden shelf, hinting at a sinister secret that someone has tried to conceal.</p><p><b>The stains lead out of the library.</b></p>",
+      "narration":"node019.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Follow the trail of blood", "target": "36", "feedback":"", "sound":"footsteps.wav", "time":"8"},
+        {"id": "2", "text": "Search in the history section", "target": "37", "feedback":"", "sound":"footsteps.wav", "time":"6"}
+       ]
+    },
+    {
+      "id": "20",
+      "text": "<p>The trail of blood leads me to the next room, which appears to be <em>the office of the mansion's owner</em>. The trail ends ominously in front of yet <em>another bookshelf</em>. Could the missing book be hidden here? And what about the injured person?</p>",
+      "narration":"node020.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Examine the bookshelf", "target": "21", "feedback":"", "sound":"page.wav", "time":"5"},
+        {"id": "2", "text": "Examine the room", "target": "38", "feedback":"", "sound":"thinking.wav", "time":"3"}
+       ]
+    },
+    {
+      "id": "21",
+      "text": "<p>As I examine the bookshelf I find a <em>piece of paper</em> stuck between the books.</p><div class='note'>In the library where shadows loom,<br> Find the book that speaks of doom.<br> Within its title, secrets ring,<br> The name of the book is what you bring.<br>Four words you seek, both dark and bright,<br> The first whispers softly in the night.<br> The second recalls things long gone,<br> Together they reveal the dawn.</div><p><b>Is this riddle indicating a certain book?</b></p>",
+      "narration":"node021.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Shadows of the Ancients", "target": "22", "feedback":"", "sound":"mechanism-clicking.wav", "time":"1"},
+        {"id": "2", "text": "Mysteries of the Unknown", "target": "22", "feedback":"", "sound":"mechanism-clicking.wav", "time":"1"},
+        {"id": "3", "text": "Whispers of the Forgotten", "target": "24", "feedback":"", "sound":"gate-opening.mp3", "time":"1"},
+        {"id": "4", "text": "Echoes of the Past", "target": "22", "feedback":"", "sound":"mechanism-clicking.wav", "time":"1"},
+        {"id": "5", "text": "Secrets of the Abyss", "target": "22", "feedback":"", "sound":"mechanism-clicking.wav", "time":"1"}
+       ]
+    },
+    {
+      "id": "22",
+      "text": "<p>I heard a clicking sound but nothing happened. Maybe I should try another one.</p><div class='note'>In the library where shadows loom,<br> Find the book that speaks of doom.<br> Within its title, secrets ring,<br> The name of the book is what you bring.<br>Four words you seek, both dark and bright,<br> The first whispers softly in the night.<br> The second recalls things long gone,<br> Together they reveal the dawn.</div>",
+      "narration":"node022.mp3", "img":"","options": [
+        {"id": "1", "text": "Shadows of the Ancients", "target": "23", "feedback":"", "sound":"heavy-impact.wav", "time":"1"},
+        {"id": "2", "text": "Mysteries of the Unknown", "target": "23", "feedback":"", "sound":"heavy-impact.wav", "time":"1"},
+        {"id": "3", "text": "Whispers of the Forgotten", "target": "24", "feedback":"", "sound":"gate-opening.mp3", "time":"1"},
+        {"id": "4", "text": "Echoes of the Past", "target": "23", "feedback":"", "sound":"heavy-impact.wav", "time":"1"},
+        {"id": "5", "text": "Secrets of the Abyss", "target": "23", "feedback":"", "sound":"heavy-impact.wav", "time":"1"}
+       ]
+    },
+    {
+      "id": "23",
+      "text": "<p>Suddenly, a mechanical sound pierces the silence. I look up just in time to see <em>a heavy anvil descending rapidly</em>. Too late to react, <em>it crashes down on me, sealing my fate</em>. Perhaps I should have paid more attention to the architect's riddles. In my <em>next life</em>, I certainly will.</p>",
+      "narration":"node023.mp3", "img":"","options": [
+
+       ]
+    },
+    {
+      "id": "24",
+      "text": "<p>Suddenly, I hear mechanical sounds, and the bookshelf retracts, revealing a <em>hidden entrance</em>. Walking cautiously inside, I come across the <em>body of an old, well-dressed man</em>. It seems he suffered many injuries and barely managed to escape to this secret room. There is no doubt he was the <em>owner</em> of the mansion; only he would know of this hidden sanctuary. That's why neither the police <i>nor the killer</i> could find him.</p><p>As I look closer, I see him clutching a <em>leather tome</em> covered in blood. In front of him lies a device that looks like an <em>audio recorder</em>.</p>",
+      "narration":"node024.mp3", "img":"","options": [
+        {"id": "1", "text": "Investigate the book", "target": "26", "feedback":"", "sound":"page.wav", "time":"20"},
+        {"id": "2", "text": "Investigate the audio recorder", "target": "25", "feedback":"", "sound":"recording.wav", "time":"8"}
+       ]
+    },
+    {
+      "id": "25",
+      "text": "<p>I slowly pick up the device from the floor and press the play button. Suddenly, a broken voice fills the tiny room.</p><div class='recording speech owner'>After all those years of searching, the <em>master has risen!</em> But none of us expected this. His thirst for blood is unparalleled! As <em>he entered Victor's body</em>, he began slaughtering us. I could not stop him when he took control. No one can. I managed to escape and convinced Victor to lock himself in the basement until I found a way to contain the demon, but I’m seriously injured. I can’t help him anymore. Maybe we screwed up. The only way to save yourself is to <em>exorcise the demon</em> inside him. Victor, if you listen to this, read the book to find the answer and undo the ritual. <em>Offer your blood to the symbol and speak the name of the demon before midnight!</em> The last sentence of the ritual holds this answer.</div><p>Suddenly, everything comes flooding back. I remember Marcus Flint the owner of the mansion. I remember the ritual. All the horror of my previous deeds is revealed before me. I AM THE MONSTER. I am the one who has to redeem myself. But is this even possible?</p>",
+      "narration":"node025.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Read the unholy tome", "target": "26", "feedback":"", "sound":"page.wav", "time":"15"},
+        {"id": "2", "text": "Try to escape", "target": "25", "feedback":"F*ck this! This is too much. I'm out of here! (JK)", "sound":"footsteps.wav", "time":"8"}
+       ]
+    },
+    {
+      "id": "26",
+      "text": "<p>With a sense of unease, I gingerly lift the book, its weight heavy with the weight of ancient secrets. Leafing through its pages filled with cryptic symbols and esoteric language. I come upon a page stained with blood. It appears to detail the very <em>ritual I seek</em>. Perhaps within these pages lies the key to exorcising the malevolent spirit that haunts this mansion.</p><p><em>I must spill my blood upon the pentagram and invoke the demon’s name before the stroke of midnight</em>, lest it be unleashed once more upon the world. Yet, the demon's name is inscribed in a script so ancient, it is barely comprehensible to my modern mind.</p><p>Nevertheless, I resolve to <b>begin with the instructions that are clearer to me - the part concerning the blood...</b></p>",
+      "narration":"node026.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Look for a knife on the upper floor", "target": "26", "feedback":"No luck. I must continue searching", "sound":"footsteps.wav", "time":"8"},
+        {"id": "2", "text": "Look for a knife in the basement", "target": "26", "feedback":"Not here. How hard is it to find a knife?", "sound":"footsteps.wav", "time":"18"},
+        {"id": "3", "text": "Look for a knife in the kitchen", "target": "28", "feedback":"", "sound":"footsteps.wav", "time":"14"}
+       ]
+    },
+    {
+      "id": "27",
+      "text": "<p>With a sense of unease, I gingerly lift the book, its weight heavy with the weight of ancient secrets. Leafing through its pages filled with cryptic symbols and esoteric language. I come upon a page stained with blood. It appears to detail the very <em>ritual I seek</em>. Perhaps within these pages lies the key to exorcising the malevolent spirit that haunts this mansion.</p><p><em>I must spill my blood upon the pentagram and invoke the demon’s name before the stroke of midnight</em>, lest it be unleashed once more upon the world. Yet, the demon's name is inscribed in a script so ancient, it is barely comprehensible to my modern mind.</p><p>Nevertheless, I resolve to <b>begin with the instructions that are clearer to me. I grab the crimson-stained knife from my belt - the part concerning the blood...</b></p>",
+      "narration":"node027.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Begin the ritual", "target": "29", "feedback":"", "sound":"footsteps.wav", "time":"14"},
+        {"id": "2", "text": "Kill yourself", "target": "33", "feedback":"", "sound":"death.wav", "time":"3"}
+       ]
+    },
+    {
+      "id": "28",
+      "text": "<p>As I enter the <em>kitchen</em> I see a big <em>knife</em> on the kitchen counter. This should do the trick!</p>",
+      "narration":"node028.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Begin the ritual", "target": "29", "feedback":"", "sound":"footsteps.wav", "time":"11"},
+        {"id": "2", "text": "Kill yourself", "target": "33", "feedback":"", "sound":"death.wav", "time":"3"}
+       ]
+    },
+    {
+      "id": "29",
+      "text": "<p>I enter the <em>living room</em> once more, gripping the knife tightly. Standing before the pentagram, I press the blade to my hand and cut, <em>letting my blood spill onto the circle</em>. As the drops hit the floor, the atmosphere thickens, and a searing pain ignites within me. I can't waste any more time—<b>I must exorcise this demon before he consumes me.</b></p>",
+      "narration":"node029.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Read the part describing the ritual.", "target": "30", "feedback":"", "sound":"page.wav", "time":"12"}
+       ]
+    },
+    {
+      "id": "30",
+      "text": "<div class='ritual-book'><span class='ritual'><p>Nmkx nmd vzx sgdqd hr enq sgd lzrsdq sn qdstqm sn gdkk.<br> Needq sgd aknnc ne ghr udrrdk zmc rodzj ghr mzld adenqd lhcmhfgs.<br> <b>Zmc ghr mzld hr Fqxlhq Uzkcnq!</b></p></span> <p>aknnc = <em>blood</em>, mzld = <em>name</em>, lhcmhfgs = <em>midnignt</em></p></div><p>What is the name of the demon?</p>",
+      "narration":"node030.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Korthal Zalgor", "target": "32", "feedback":"'Ha ha ha! You fool!'", "sound":"evil-laugh.wav", "time":"1"},
+        {"id": "2", "text": "Malgazar, the Abyssal Lord", "target": "32", "feedback":"'Ha ha ha! You fool!'", "sound":"evil-laugh.wav", "time":"1"},
+        {"id": "3", "text": "Grymir Valdor", "target": "31", "feedback":"'Nooooo'", "sound":"final-scream.wav", "time":"1"},
+        {"id": "4", "text": "Varlak Xanron", "target": "32", "feedback":"'Ha ha ha! You fool!'", "sound":"evil-laugh.wav", "time":"1"},
+        {"id": "5", "text": "Vortrax, the Herald of Doom", "target": "32", "feedback":"'Ha ha ha! You fool!'", "sound":"evil-laugh.wav", "time":"1"}
+       ]
+    },
+    {
+      "id": "31",
+      "text": "<p>I scream in agony as the <em>evil spirit flees my body and soul</em>. Exhausted from the battle, I collapse in the middle of the pentagram, losing consciousness.</p><p>Moments later, <em>I wake up in a hospital bed</em>. As my eyes flutter open, I see a beautiful <em>woman sitting beside me</em>, holding my hand. The instant she realizes I'm awake, she stands up, relief washing over her face. <span class='speech wife'>'Oh, Victor, you scared me so much, my dear! Everything will be alright. This nightmare is finally over!'</span> she exclaims.</p>",
+      "narration":"node031.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Ask what happened", "target": "52", "feedback":"", "sound":"thinking.wav", "time":"0"}
+       ]
+    },
+    {
+      "id": "32",
+      "text": "<p>I cry out in despair as <em>the demon seizes control of my body once more</em>. How foolish I was to think I could so easily defeat this primordial evil.</p>",
+      "narration":"node032.mp3", "img":"",
+      "options": [
+      
+       ]
+    },
+    {
+      "id": "33",
+      "text": "<p>There is only one way to redeem myself, one way to erase this evil from the world. As <em>the knife cuts deep into my veins</em>, <b>the line monitoring my heartbeat finally goes flat</b>.</p>",
+      "narration":"node033.mp3", "img":"",
+      "options": [
+      
+       ]
+    },
+    {
+      "id": "34",
+      "text": "<p>It is almost <em>midnight</em>. I have <em>no time left</em> and no options either.</p>",
+      "narration":"node034.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Wait until midnight", "target": "32", "feedback":"'Ha ha ha! You fool!'", "sound":"evil-laugh.wav", "time":"5"}
+       ]
+    },
+    {
+      "id": "35",
+      "text": "<p>It is almost <em>midnight</em>. I have <em>no time left</em> and no options either.</p><p>There is only one way out of this madness...</p>",
+      "narration":"node035.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Wait until midnight", "target": "32", "feedback":"'Ha ha ha! You fool!'", "sound":"evil-laugh.wav", "time":"5"},
+        {"id": "2", "text": "Kill yourself", "target": "33", "feedback":"", "sound":"death.wav", "time":"3"}
+       ]
+    },
+    {
+      "id": "36",
+      "text": "<p>Where will this crimson trail lead me?</p><div class='trail'></div>",
+      "narration":"node036.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Go to Bathroom", "target": "36", "feedback":"No book is hidden here. Only blood from shaving...", "sound":"footsteps.wav", "time":"16"},
+        {"id": "2", "text": "Go to Bedroom", "target": "36", "feedback":"I missed the trail of blood. Nothing useful is in the bedroom anyway.", "sound":"footsteps.wav", "time":"19"},
+        {"id": "3", "text": "Go to Office", "target": "20", "feedback":"", "sound":"footsteps.wav", "time":"18"}
+       ]
+    },
+    {
+      "id": "37",
+      "text": "<p>As I browse through the history section, I come across an album titled 'Our History.' Inside, I find photographs of the mansion and its owner. The album is filled with images of gatherings and rituals, but one <em>picture</em> in particular captures my attention: <em>seven people dressed in matching uniforms. Among them is the owner of the mansion—and me</em>. Was I truly a part of this?</p><p><b>Perhaps I can uncover more clues about the owner and this mysterious organization</b>.</p>",
+      "narration":"node037.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Search in the religion section", "target": "19", "feedback":"", "sound":"footsteps.wav", "time":"8"},
+        {"id": "2", "text": "Search in the encyclopedia", "target": "18", "feedback":"Nothing relevant but the owner better be smart.", "sound":"footsteps.wav", "time":"5"},
+        {"id": "3", "text": "Search for the owner", "target": "38", "feedback":"", "sound":"footsteps.wav", "time":"16"}
+       ]
+    },
+    {
+      "id": "38",
+      "text": "<p>As I continue my search, I find the <em>owner's office</em>. The room exudes luxury and sophistication, adorned with elegant decor. Photographs of the owner are displayed prominently at his <em>desk</em>, along with a <em>large portrait</em> of him on the opposite wall. A <em>grand bookshelf</em> lines the left side of the room, while a leather sofa occupies the right.</p> <p>This office might hold more <em>clues</em> about the mansion—or perhaps even the <em>key</em> to my escape.</p>",
+      "narration":"node038.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Investigate the desk", "target": "40", "feedback":"", "sound":"footsteps.wav", "time":"7"},
+        {"id": "2", "text": "Investigate the portrait", "target": "39", "feedback":"", "sound":"footsteps.wav", "time":"4"},
+        {"id": "3", "text": "Investigate the bookshelf", "target": "21", "feedback":"", "sound":"page.wav", "time":"16"}
+       ]
+    },
+    {
+      "id": "39",
+      "text": "<p>As I approach the portrait, I realize the immense effort and expense that went into its creation. The owner of the house is depicted as a regal figure, overseeing his subordinates with an air of authority. In his right hand, he holds a scroll bearing the following <em>message</em>:</p><p><span class='speech portrait'>'A thousand years after he ascended into heaven and is seated at the right hand of the Father. He will come again in his glory to judge the living and the dead, and his kingdom will have no end. ... We look for the resurrection of the dead, and the life of the world to come.'</span></p><p><b>Is this a hidden message?</b></p>",
+      "narration":"node039.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Investigate the desk", "target": "40", "feedback":"", "sound":"footsteps.wav", "time":"7"}
+       ]
+    },
+    {
+      "id": "40",
+      "text": "<p>I search the owner's desk meticulously. Although I find nothing of use on top. There is a <em>drawer locked with a 4-digit combination</em>. I have a feeling something valuable must be hidden here. Something I need. But can I find the right combination?</p>",
+      "narration":"node040.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Enter '1033'", "target": "42", "feedback":"A clicking sound is heard and the drawer opens", "sound":"mechanism-clicking.wav", "time":"2"},
+        {"id": "2", "text": "Enter '1066'", "target": "41", "feedback":"", "sound":"electric-shock.mp3", "time":"2"},
+        {"id": "3", "text": "Enter '1914'", "target": "41", "feedback":"", "sound":"electric-shock.mp3", "time":"2"},
+        {"id": "4", "text": "Enter '1941'", "target": "41", "feedback":"", "sound":"electric-shock.mp3", "time":"2"},
+        {"id": "5", "text": "Investigate the portrait", "target": "39", "feedback":"", "sound":"footsteps.wav", "time":"4"}
+       ]
+    },
+    {
+      "id": "41",
+      "text": "<p>I enter the combination and press the button next to it, but luck is not on my side. <em>A strong electric current surges through my body</em>, frying every remaining ounce of my miserable existence. Perhaps I should be more careful next time—<em>if I resurrect...</em></b></p>",
+      "narration":"node041.mp3", "img":"",
+      "options": [
+
+       ]
+    },
+    {
+      "id": "42",
+      "text": "<p>In the first drawer, I find a <em>key</em>. For the first time since I woke up here, a surge of excitement courses through me. <b>Could this be the key to my escape?</b></p>",
+      "narration":"node042.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Search for the escape route in the basement", "target": "46", "feedback":"", "sound":"climbing-ladder.mp3", "time":"7"},
+        {"id": "2", "text": "Investigate the bookshelf", "target": "21", "feedback":"", "sound":"page.wav", "time":"16"}
+       ]
+    },
+    {
+      "id": "43",
+      "text": "<p>I descend again to the <em>basement</em>, guided by the woman's note that mentioned an escape route. Two doors stand before me. One leads to the cellar from which I escaped hours ago. The second <em>door is locked</em>. This must be the way out. <b>But how can I open it?</b></p>",
+      "narration":"node043.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Try lockpicking the door", "target": "44", "feedback":"", "sound":"mechanism-clicking.wav", "time":"15"},
+        {"id": "2", "text": "Search for the key", "target": "45", "feedback":"", "sound":"footsteps.wav", "time":"4"}
+       ]
+    },
+    {
+      "id": "44",
+      "text": "<p>Complete the <em>pattern</em> to unlock the door.</p><p>I, IV, VII, X, __,XVI</p><p>What is the missing Roman numeral?</p>",
+      "narration":"node044.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "XI", "target": "45", "feedback":"No luck. I must try another way.", "sound":"mechanism-clicking.wav", "time":"5"},
+        {"id": "2", "text": "XII", "target": "45", "feedback":"No luck. I must try another way.", "sound":"mechanism-clicking.wav", "time":"5"},
+        {"id": "3", "text": "XIII", "target": "47", "feedback":"The door unlocks!", "sound":"doorcreaking.flac", "time":"5"},
+        {"id": "4", "text": "XIV ", "target": "45", "feedback":"No luck. I must try another way.", "sound":"mechanism-clicking.wav", "time":"5"},
+        {"id": "5", "text": "XV", "target": "45", "feedback":"No luck. I must try another way.", "sound":"mechanism-clicking.wav", "time":"5"}
+       ]
+    },
+    {
+      "id": "45",
+      "text": "<p>I have to <em>find the key</em> to open this door. Where could it be?</p>",
+      "narration":"node045.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Search in the basement", "target": "45", "feedback":"Nothing here", "sound":"footsteps.wav", "time":"14"},
+        {"id": "2", "text": "Search in the kitchen.", "target": "45", "feedback":"Nothing here", "sound":"footsteps.wav", "time":"18"},
+        {"id": "3", "text": "Search the upper floor.", "target": "38", "feedback":"", "sound":"footsteps.wav", "time":"24"}
+       ]
+    },
+    {
+      "id": "46",
+      "text": "<p>I descend again to the <em>basement</em>, guided by the woman's note that mentioned an escape route. I know there is a mysterious <em>door</em> there. This must be the way out. <b>Let's try the <em>key</em> I found in the owner's office</b></p>",
+      "narration":"node046.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Try to open the door", "target": "47", "feedback":"", "sound":"footsteps.wav", "time":"1"}
+       ]
+    },
+    {
+      "id": "47",
+      "text": "<p>The door finally unlocks, and I step into a small, dark room that appears to be a <em>storage area</em>. On the far side, I see a <em>trapdoor</em>. The wind whispers through its cracks, confirming my belief that <em>freedom lies just beyond it</em>. </p><p>But as I get closer, I notice a thick <em>chain keeping the trapdoor locked</em>, trapping me here a while longer. I need to <em>find a tool to cut this chain</em> and escape before midnight.</span></p>",
+      "narration":"node047.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Search for the tool in the cellar", "target": "49", "feedback":"", "sound":"toolbox.wav", "time":"12"},
+        {"id": "2", "text": "Search for the tool in the kitchen.", "target": "47", "feedback":"Nothing here", "sound":"footsteps.wav", "time":"18"},
+        {"id": "3", "text": "SSearch for the tool in the living room.", "target": "47", "feedback":"Nothing here", "sound":"footsteps.wav", "time":"20"}
+       ]
+    },
+    {           
+      "id": "48",
+      "text": "<p>The door finally unlocks, and I step into a small, dark room that appears to be a <em>storage area</em>. On the far side, I see a <em>trapdoor</em>. The wind whispers through its cracks, confirming my belief that <em>freedom lies just beyond it</em>. </p><p>As I approach, I notice a thick <em>chain securing the trapdoor</em>, keeping me trapped here a while longer. Hopefully, I can <em>cut it with the pliers</em> I found.</span></p>",
+      "narration":"node048.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Cut the chain", "target": "50", "feedback":"", "sound":"chain.wav", "time":"1"}
+       ]
+    },
+    {
+      "id": "49",
+      "text": "<p>As I search in the cellar, I find a small tool cabinet. Inside there is <em>a pair of cutting pliers</em>. This should do the trick.</p>",
+      "narration":"node049.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Cut the chain", "target": "50", "feedback":"", "sound":"chain.wav", "time":"4"}
+       ]
+    },
+    {
+      "id": "50",
+      "text": "<p>I return to the trapdoor with the right tool. Time is almost out. I need <em>to</em> use my <em>power</em> to <em>for</em>ce the chain to break and leave this cursed place!</p>",
+      "narration":"node050.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "8", "target": "50", "feedback":"This isn't right!", "sound":"chain.wav", "time":"10"},
+        {"id": "2", "text": "16", "target": "51", "feedback":"", "sound":"door-unlocked.wav", "time":"10"},
+        {"id": "3", "text": "32", "target": "50", "feedback":"This isn't right!", "sound":"chain.wav", "time":"10"},
+        {"id": "4", "text": "64", "target": "50", "feedback":"This isn't right!", "sound":"chain.wav", "time":"10"},
+        {"id": "5", "text": "128", "target": "50", "feedback":"This isn't right!", "sound":"chain.wav", "time":"10"}
+       ]
+    },
+    {
+      "id": "51",
+      "text": "<p>As the chain breaks and <em>the door finally opens</em>, the cold outside wind rushes in, stronger than ever. Emerging from the mansion, I step into a blizzard, guided only by a dim light. Exhausted, my head grows heavy, and I collapse into the snow.</p><p><b>I wake up, chained to a hospital bed</b>. Why am I here? Where is the mansion? Before long, <em>a doctor walks into the room</em>. He seems surprised by my awakening, but something's off. <span class='speech doctor'>'My dear Victor,'</span> he says, his eyes glowing red. <span class='speech doctor'>'You think you can escape this place... But try to think for a moment. Do you really believe you can escape your nightmares so easily?'</span></p>",
+      "narration":"node051.mp3", "img":"",
+      "options": [
+        {"id": "1", "text": "Ask what happened", "target": "53", "feedback":"", "sound":"thinking.wav", "time":"0"}
+       ]
+    },
+    {
+      "id": "52",
+      "text": "<p><span class='speech doctor'>'You were involved in a serious work-related accident caused by your negligence. Tragically, this accident resulted in the deaths of four colleagues and left you in a deep coma. In this unconscious state, your mind created a relentless nightmare loop, serving as a personification of your overwhelming guilt. Conquering the evil within this nightmare became a metaphor for your subconscious journey towards self-forgiveness for the loss of your colleagues. Overcoming this inner turmoil allowed you to awaken, mentally stable, and ready to face reality.'</span></p>",
+      "narration":"node052.mp3", "img":"",
+      "options": [
+       ]
+    },
+    {
+      "id": "53",
+      "text": "<p><span class='speech doctor'>'You were involved in a serious work-related accident caused by your negligence. Tragically, this accident resulted in the deaths of four colleagues and left you in a deep coma. In this unconscious state, your mind created a relentless nightmare loop, personifying your overwhelming guilt. Though you escaped the nightmare and awoke from the coma, you were left with serious mental scars and signs of paranoia. Unable to process your guilt, your past deeds continue to haunt you, casting a long shadow over your life.'</span></p>",
+      "narration":"node053.mp3", "img":"",
+      "options": [
+       
+       ]
+    }
+  ]
+}

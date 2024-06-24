@@ -1,0 +1,430 @@
+/* Change color and Fonts in root ↙ */
+:root {
+    /* Main colors */
+    --primary: #111;
+    --secontary: #444444;
+    --secontary-transparent: #444444aa;
+    --accent: firebrick;
+    --accent2: #d91d1d;
+    --accent-transparent: #B22222aa;
+    --transparent-black: #1119;
+    --hover-transparent: #2229;
+    --light-background: #e5e5e5;
+    --light-font: #eee;
+    --checkpoint-color: MediumSeaGreen;
+    /* Fonts */
+    --main-text-font: "Caveat", cursive;
+    --button-font: "Caveat", cursive;
+    --time-font: "Rubik Wet Paint", system-ui;
+    --final-message-font: "Sedan SC", serif;
+    --main-font-color: var(--light-font);
+    /* Assets */
+    --feedback-overlay-image: url("../images/label.png");
+    --feedback-overlay-image-mobile: url("../images/label-mob.png");
+}
+
+body {
+    font-family: var(--main-text-font);
+    color: var(--main-font-color);
+    font-size: 1.4rem;
+    background-color: var(--secontary);
+    --background-image: url("../backgrounds/bg.jpg");
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) blur(5px) brightness(50%);
+    z-index: -1;
+}
+
+em {
+    color: var(--accent);
+}
+
+.node-text {
+    background-color: var(--transparent-black);
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.node-text:hover {
+    background-color: var(--hover-transparent);
+    transition: background-color 0.3s;
+}
+
+.narration-hint {
+    margin: 0;
+    color: #ccc;
+    text-shadow: 1px -1px 3px var(--transparent-black);
+    font-size: 1.1rem;
+    position: relative;
+    display: block;
+    top:-12px;
+    left: 10px;
+    height: 0px;
+}
+
+section {
+    margin: 2% 12%;
+    display: flex;
+}
+
+.container-fluid {
+    min-height: 92vh;
+}
+
+#content {
+    color: var(--light-font);
+}
+
+.btn {
+    font-family: var(--button-font);
+    font-size: 1.4rem;
+    color: var(--light-font);
+    background-color: var(--primary);
+    background: linear-gradient(180deg, var(--primary) 70%, var(--accent) 100%);
+    padding: 1% 5%;
+    border-radius: 30px;
+    border: none;
+}
+
+.btn:hover {
+    background-color: var(--accent);
+    color: var(--light-font);
+    background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+}
+
+.opt-btn {
+    display: block;
+    text-align: left;
+}
+
+.time-remark{
+    font-size: 1rem;
+}
+
+hr {
+    border: solid 1px var(--light-background);
+}
+
+.loader-overlay {
+    display: none;
+    width: 76%;
+    aspect-ratio: 19 / 10;
+    align-items: center;
+    position: fixed;
+    top: 5%;
+    z-index: 10;
+}
+
+.feedback {
+    display: flex;
+    width: 100%;
+    background-image: var(--feedback-overlay-image);
+    background-size: cover;
+    aspect-ratio: 19 / 10;
+    align-content: center;
+    flex-wrap: wrap;
+    cursor: pointer;
+
+}
+
+.feedback-text {
+    width: 100%;
+    font-size: 2rem;
+    padding: 2% 4% 0% 4%;
+}
+
+.next-btn {
+    display: grid;
+    color: var(--light-font);
+    display: flow;
+    width: 100%;
+    align-content: center;
+    font-size: 2rem;
+}
+
+.death {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--accent);
+    font-family: var(--final-message-font);
+    text-shadow: 3px 3px var(--primary);
+    display: none;
+}
+
+.time {
+    position: flex;
+    color: var(--accent);
+    font-family: var(--time-font);
+    font-size: 3rem;
+}
+
+.time-container {
+    min-height: 75px;
+}
+
+.replay {
+    display: none;
+}
+
+.replay-btn {
+    font-size: 1.5rem;
+}
+
+.checkpoint-btn {
+    display: none;
+    background: linear-gradient(180deg, var(--primary) 70%, var(--checkpoint-color) 100%);
+}
+
+.checkpoint-btn:hover {
+    background: linear-gradient(180deg, var(--primary) 0%, var(--checkpoint-color) 100%);
+}
+
+.inventory {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+.inv-item {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 40%;
+    background-color: var(--transparent-black);
+    transition: transform 1s;
+    background-position: center;
+    background-size: contain;
+}
+
+.inv-item:hover {
+    transform: scale(1.4);
+    z-index: 10;
+    transition: transform 0.3s;
+    background-color: var(--secontary-transparent);
+}
+
+.speech {
+    font-style: italic;
+}
+
+.character-box {
+    display: none;
+    max-height: 75px;
+    aspect-ratio: 1 / 1;
+    top: 12%;
+    border-radius: 40%;
+    background-color: var(--transparent-black);
+    transition: background-color 0.3s;
+}
+
+.col-3:has(.interlocutor) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.character-box img {
+    border-radius: 40%;
+    max-height: 75px;
+}
+
+.loader {
+    position: absolute;
+    bottom: 30%;
+    left: 48%;
+    border: 12px solid var(--secontary-transparent);
+    border-top: 12px solid var(--accent-transparent);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Unique to this game */
+.note {
+    width: fit-content;
+    padding: 5% 4% 10% 4%;
+    background-image: url("../images/note-bg.png");
+    background-size: cover;
+    color: var(--transparent-black);
+}
+
+.bloody {
+    width: 550px;
+    background-image: url("../images/bloody-note-bg.png");
+}
+
+.report {
+    width: 800px;
+    margin-bottom: 10px;
+}
+
+.ritual-book {
+    width: 800px;
+    padding: 2%;
+    background-image: url("../images/page.png");
+    background-size: cover;
+    color: var(--transparent-black);
+    margin-bottom: 10px;
+}
+
+.ritual{
+    font-family: "Sedan SC", serif;
+}
+
+.trail{
+    width: 500px;
+    aspect-ratio: 1 / 1;
+    background-image: url("../images/trail.jpg");
+    background-size: cover;
+}
+/* End Unique to this game */
+
+/* Home page, Credits Page */
+#home .row {
+    height: 80vh;
+    color: var(--light-font);
+}
+
+#home h1, #credits h1 {
+    font-size: 5em;
+}
+
+#home p {
+    font-size: 1.5em;
+}
+
+#home .menu-btn {
+    font-family: "Rubik Wet Paint", system-ui;
+    display: block;
+    width: 50%;
+    margin: 5px auto;
+    color: var(--accent);
+    font-size: 2.5rem;
+    background: none;
+    transition-property: transform, color;
+    transition-duration: 0.8s;
+    text-decoration: none;
+}
+
+#home .menu-btn:hover {
+    transform: scale(1.2);
+    color: var(--accent2);
+    transition-property: transform, color;
+    transition-duration: 0.4s;
+}
+
+#home .play-btn {
+    font-size: 4.5rem;
+}
+
+#home .play-btn {
+    cursor: pointer;
+}
+
+#home .disclaimer {
+    position: fixed;
+    bottom: 5px;
+    left: 10px;
+    font-size: 0.8rem;
+    font-family: sans-serif;
+}
+
+/* Credits */
+#credits .container-fluid{
+    width: 800px;
+    
+}
+
+#credits h2, #credits p{
+    font-size: 1.5rem;
+}
+
+#credits h2{
+    color: var(--accent);
+}
+
+#credits a{
+    color: var(--light-font);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--light-background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent2);
+}
+
+
+@media (min-width: 769px) {}
+
+@media (max-width: 768px) {
+    section {
+        margin: 6% 1%;
+    }
+
+    .loader-overlay {
+        display: none;
+        width: 100%;
+        top: 15%;
+    }
+
+    .feedback {
+        background-image: var(--feedback-overlay-image-mobile);
+        background-size: cover;
+        aspect-ratio: 1 / 1;
+    }
+
+    .feedback-text {
+        font-size: 1.5rem;
+        padding: 4%;
+    }
+
+    .loader {
+        position: fixed;
+        bottom: 30%;
+        left: 43%;
+    }
+
+    #home h1, #credits h1 {
+        font-size: 3em;
+    }
+
+    /* Unique to this game */
+    .bloody, .report, .ritual-book, .trail {
+        width: 100%;
+    }
+}
