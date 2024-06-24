@@ -25,7 +25,7 @@ $(document).ready(() => {
         try {
             console.log("Starting game...");
             await new Promise(resolve => setTimeout(resolve, 600));
-            window.location.href = "file:///C:/Users/micha/Desktop/cmd-game/game.html";
+            window.location.href = "./game.html";
         } catch (error) {
             console.error('An error occurred:', error);
         }
